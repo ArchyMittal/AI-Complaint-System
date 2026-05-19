@@ -49,14 +49,13 @@ function Dashboard() {
 
 
 
-  // FETCH COMPLAINTS
   const fetchComplaints = async () => {
 
     try {
 
       const response = await axios.get(
 
-        "http://localhost:5000/api/complaints",
+        "https://ai-complaint-system-5lx1.onrender.com/api/complaints",
 
         {
           headers: {
@@ -90,17 +89,15 @@ function Dashboard() {
 
 
 
-  // SUBMIT COMPLAINT
   const handleSubmit = async (e) => {
 
     e.preventDefault();
 
     try {
 
-      // SAVE COMPLAINT
       await axios.post(
 
-        "http://localhost:5000/api/complaints",
+        "https://ai-complaint-system-5lx1.onrender.com/api/complaints",
 
         formData,
 
@@ -114,10 +111,9 @@ function Dashboard() {
 
 
 
-      // AI ANALYSIS
       const aiResponse = await axios.post(
 
-        "http://localhost:5000/api/ai/analyze",
+        "https://ai-complaint-system-5lx1.onrender.com/api/ai/analyze",
 
         {
           description:
@@ -156,15 +152,13 @@ function Dashboard() {
   };
 
 
-
-  // DELETE COMPLAINT
   const deleteComplaint = async (id) => {
 
     try {
 
       await axios.delete(
 
-        `http://localhost:5000/api/complaints/${id}`,
+        `https://ai-complaint-system-5lx1.onrender.com/api/complaints/${id}`,
 
         {
           headers: {
@@ -187,15 +181,13 @@ function Dashboard() {
   };
 
 
-
-  // UPDATE STATUS
   const updateStatus = async (id) => {
 
     try {
 
       await axios.put(
 
-        `http://localhost:5000/api/complaints/${id}`,
+        `https://ai-complaint-system-5lx1.onrender.com/api/complaints/${id}`,
 
         {
           status: "Resolved"
@@ -223,7 +215,6 @@ function Dashboard() {
 
 
 
-  // LOGOUT
   const logout = () => {
 
     localStorage.removeItem("token");
